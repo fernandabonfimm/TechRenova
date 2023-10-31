@@ -1,0 +1,67 @@
+.bannerHome {
+  background-image: url("../../assets/img/bannerhome.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  text-align: center;
+  padding: 0 1rem;
+  width: 100%;
+}
+
+.titleBannerHome {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: #fff;
+}
+
+.buttonBannerHome {
+  background-color: #223454;
+  color: #fff;
+  padding: 1.4em;
+  border-radius: 0.5rem;
+  font-size: 20px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  border: none;
+  gap: 15px;
+}
+
+.buttonBannerHome:hover {
+  background-color: #fff;
+  color: #223454;
+  border: 2px solid #223454;
+}
+
+.divitemsBannerHome {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 15px;
+}
+.divCardsHome {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+  gap: 15px;
+  padding: 4em;
+  background-color: #223454;
+}
+
+@media screen and (max-width: 768px){
+  .divCardsHome{
+    flex-direction: column;
+  }
+}

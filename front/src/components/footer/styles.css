@@ -1,0 +1,34 @@
+.footer {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 2em;
+  background-color: #223454;
+}
+
+.divCopyright {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 10px;
+  background-color: #ffff;
+}
+.spanCopyright {
+  color: #223454;
+  font-size: 1.2em;
+  font-weight: 600;
+}
+.divider {
+  width: 100%;
+  height: 1px;
+  background-color: #ac8d3f;
+}
+.logoFooter {
+  width: 220px;
+  height: 80px;
+}
+.logoFooterUP{
+  width: 220px;
+  height: 120px;
+}
