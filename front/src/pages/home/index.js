@@ -7,6 +7,7 @@ import Celular from "../../assets/img/celular.jpg";
 import Cpu from "../../assets/img/cpu.jpg";
 import Notebook from "../../assets/img/notebook.jpg";
 import BannerHome from "../../assets/img/bannerh.png";
+import Banner2 from "../../assets/img/banner2.png";
 
 export default function Home() {
   const arrCardHome = [
@@ -35,6 +36,9 @@ export default function Home() {
   return (
     <Base>
       <img src={BannerHome} alt="bannerhome" />
+      <div>
+        <img src={Banner2} alt="banner2" />
+      </div>
       <h1>PRODUTOS</h1>
       <Divider />
       <div className="divCardsHome">
