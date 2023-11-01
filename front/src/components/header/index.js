@@ -20,17 +20,19 @@ export default function Header() {
   ];
   return (
     <>
-      <div className="headerMobile">
+      <div className="divHeaderFather">
         <Header className="divHeader">
           {menu.map((item) => {
-            <div key={item.value}>
-              <Button
-                className="btnMenuHeader"
-                onClick={() => navigate(item.route)}
-              >
-                {item.label}
-              </Button>
-            </div>;
+            return (
+              <div key={item.value}>
+                <Button
+                  className="btnMenuHeader"
+                  onClick={() => navigate(item.route)}
+                >
+                  {item.label}
+                </Button>
+              </div>
+            );
           })}
           <img src={Logo} alt="Logo" className="logoPreverHeader" />
         </Header>

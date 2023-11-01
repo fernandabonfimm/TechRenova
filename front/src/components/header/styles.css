@@ -6,3 +6,10 @@
   gap: 10px;
   padding: 3em;
 }
+.divHeaderFather{
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-direction: row;
+  padding: 2em;
+}

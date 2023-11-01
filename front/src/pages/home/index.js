@@ -1,7 +1,7 @@
 import React from "react";
 import Base from "../../components/base";
 import "./styles.css";
-import { Button, Divider } from "antd";
+import { Button, Divider, Row, Col } from "antd";
 import CardHome from "components/cardHome";
 import Celular from "../../assets/img/celular.jpg";
 import Cpu from "../../assets/img/cpu.jpg";
@@ -35,9 +35,9 @@ export default function Home() {
   ];
   return (
     <Base>
-      <img src={BannerHome} alt="bannerhome" />
-      <div>
-        <img src={Banner2} alt="banner2" />
+      <img src={BannerHome} alt="bannerhome" className="imgBannerPrincipal" />
+      <div className="divImgBanner2">
+        <img src={Banner2} alt="banner2" className="imgBanner2" />
       </div>
       <h1>PRODUTOS</h1>
       <Divider />
@@ -50,11 +50,26 @@ export default function Home() {
               img={item.img}
               price={item.price}
             />
-            ;
           </div>;
         })}
       </div>
       <Button>VER TODOS OS PRODUTOS</Button>
+      <div className="bannerHome imgBannerPrincipal">
+        <Row gutter={[32, 22]}>
+          <Col xs={24} xl={12}>
+              <h1 className="titleCol2Footer">
+                SOBRE NOSSO MODELO DE NEGÓCIOS
+              </h1>
+              <span className="subtitleCol2Footer">
+                The perfect balance of whimsical and wearable – the feminine
+                Edie Cascade
+              </span>
+              <Button className="btnCol2Footer" onClick={() => {}}>
+                SAIBA MAIS
+              </Button>
+          </Col>
+        </Row>
+      </div>
     </Base>
   );
 }
