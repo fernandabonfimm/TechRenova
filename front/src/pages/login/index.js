@@ -3,6 +3,7 @@ import Input from "../../components/input";
 import Button from "components/button";
 import "./styles.css";
 import { useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
 
 export default function Login() {
   const [emailValue, setEmailValue] = React.useState("");
@@ -14,6 +15,9 @@ export default function Login() {
       password: passwordValue,
     };
     console.log(body);
+    Swal.fire({
+        title: "Sucesso"
+    })
   };
   return (
     <div className="divLoginFather">
