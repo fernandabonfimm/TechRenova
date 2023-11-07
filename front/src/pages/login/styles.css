@@ -1,0 +1,48 @@
+.divLoginFather {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  width: 100%;
+  min-height: 100vh;
+}
+.divLogin2 {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+  background-color: #081f38;
+  padding: 2em;
+  width: 50%;
+  min-height: 100vh;
+  gap: 20px;
+}
+
+.divLogin1 {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+  padding: 2em;
+  width: 50%;
+  min-height: 100vmin;
+  background-image: url('../../assets/img/photologin.png');
+}
+
+.titleLogin{
+    text-transform: uppercase;
+    font-size: 25px;
+    color: #ffff;
+    font-weight: 800;
+}
+
+.subtitleLogin{
+    font-size: 20px;
+    color: #c6c6c6;
+    font-weight: 500;
+}
+
+.spanLogin{
+    color: #ffff;
+    font-size: 18px;
+}
