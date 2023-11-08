@@ -1,10 +1,11 @@
 import React from "react";
 import "./styles.css";
+import { Button } from "antd";
 
-export default function Button({ onClick, children }) {
+export default function ButtonComponent({ onClick, children }) {
   return (
-    <button className="btnClass" onClick={onClick}>
+    <Button className="btnClass" onClick={onClick}>
       {children}
-    </button>
+    </Button>
   );
 }

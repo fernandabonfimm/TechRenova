@@ -55,20 +55,14 @@ export default function Home() {
       </div>
       <Button>VER TODOS OS PRODUTOS</Button>
       <div className="bannerHome imgBannerPrincipal">
-        <Row gutter={[32, 22]}>
-          <Col xs={24} xl={12}>
-              <h1 className="titleCol2Footer">
-                SOBRE NOSSO MODELO DE NEGÓCIOS
-              </h1>
-              <span className="subtitleCol2Footer">
-                The perfect balance of whimsical and wearable – the feminine
-                Edie Cascade
-              </span>
-              <Button className="btnCol2Footer" onClick={() => {}}>
-                SAIBA MAIS
-              </Button>
-          </Col>
-        </Row>
+        <h1 className="titleCol2Footer">SOBRE NOSSO MODELO DE NEGÓCIOS</h1>
+        <span className="subtitleCol2Footer">
+          The perfect balance of whimsical and wearable – the feminine Edie
+          Cascade
+        </span>
+        <Button className="btnCol2Footer" onClick={() => {}}>
+          SAIBA MAIS
+        </Button>
       </div>
     </Base>
   );
