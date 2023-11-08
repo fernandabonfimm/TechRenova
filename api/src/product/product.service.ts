@@ -25,44 +25,48 @@ export class ProductService {
   }
 
   async homePageProducts(): Promise<any> {
-    const findAllProducts = await this.productModel
-      .find({})
-      .sort({ timestamp: -1 }); // -1 for descending order
+    try {
+      const findAllProducts = await this.productModel
+        .find({})
+        .sort({ timestamp: -1 }); // -1 for descending order
+      if(!findAllProducts) throw new HttpException('Erro ao buscar os produtos', HttpStatus.I_AM_A_TEAPOT);
+      let categories = [];
+      
+      findAllProducts.forEach((product, i = 0) => {
+        if (i === 2) return;
+        if (!categories.includes(product.category)) {
+          categories.push(product.category);
+          i++;
+        }
+      });
 
-    let categories = [];
+      const filteredAllProducts = await this.productModel.find({
+        category: categories[0],
+      });
+      const filteredAllProducts2 = await this.productModel.find({
+        category: categories[1],
+      });
+      const filteredAllProducts3 = await this.productModel.find({
+        category: categories[2],
+      });
 
-    findAllProducts.forEach((product, i = 0) => {
-      if (i === 2) return;
-      if (!categories.includes(product.category)) {
-        categories.push(product.category);
-        i++;
-      }
-    });
-
-    const filteredAllProducts = await this.productModel.find({
-      category: categories[0],
-    });
-    const filteredAllProducts2 = await this.productModel.find({
-      category: categories[1],
-    });
-    const filteredAllProducts3 = await this.productModel.find({
-      category: categories[2],
-    });
-
-    const productsArray: any = [
-      {
-        categoryName: filteredAllProducts[0].category,
-        products: filteredAllProducts,
-      },
-      {
-        categoryName: filteredAllProducts2[0].category,
-        products: filteredAllProducts2,
-      },
-      {
-        categoryName: filteredAllProducts3[0].category,
-        products: filteredAllProducts3,
-      },
-    ];
-    return productsArray;
+      const productsArray: any = [
+        {
+          categoryName: filteredAllProducts[0].category,
+          products: filteredAllProducts,
+        },
+        {
+          categoryName: filteredAllProducts2[0].category,
+          products: filteredAllProducts2,
+        },
+        {
+          categoryName: filteredAllProducts3[0].category,
+          products: filteredAllProducts3,
+        },
+      ];
+      return productsArray;
+    } catch (E) {
+      return E;
+    }
   }
 }
