@@ -3,6 +3,8 @@ import { InjectModel } from '@nestjs/mongoose';
 import { Product } from './schemas/product.schema';
 import { Model } from 'mongoose';
 import { ProductDto } from './dtos/product.dto';
+import { async } from 'rxjs';
+import { error } from 'console';
 
 @Injectable()
 export class ProductService {
@@ -39,7 +41,7 @@ export class ProductService {
           i++;
         }
       });
-
+      
       const filteredAllProducts = await this.productModel.find({
         category: categories[0],
       });
@@ -67,6 +69,19 @@ export class ProductService {
       return productsArray;
     } catch (E) {
       return E;
+    }
+  }
+
+    async searchById(id: string): Promise<any> {
+      try{
+        const productModel = await this.productModel.findById(productId).exec();
+        if(!productModel){
+          throw new HttpException("Product wasn't found...", HttpStatus.NOT_FOUND);
+        }
+        return productModel;
+      }
+      catch (error){
+      return "Error: " + error;
     }
   }
 }
