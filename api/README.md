@@ -22,6 +22,12 @@
   <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
   [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
 
+## CONECTAR COM BANCO DE DADOS
+
+Para conectar com banco de dados tem que ir no .env e colocar no DB_URI a sua conexão com o banco do atlas
+Ou colocar no DB_URI_LOCAL se estiver rodando o mongosh.
+Dependendo da escolha vc deve mudar ela em app.module.ts
+
 ## Description
 
 [Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
