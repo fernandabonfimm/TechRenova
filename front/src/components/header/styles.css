@@ -13,3 +13,43 @@
   flex-direction: row;
   padding: 2em;
 }
+
+.logoPreverHeader{
+  width: 8em;
+  height: 5.5em;
+  margin: 0;
+  padding: 0;
+}
+
+.icon-header{
+  background-color: #53FEE3;
+  color: #ffff;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  padding: 10px;
+  border-radius: 100%;
+  cursor: pointer;
+  font-size: 25px;
+}
+.icon-header:hover{
+  background-color: #ffff;
+  color: #53FEE3;
+  border: 1px solid #53FEE3;
+}
+.btnMenuHeader{
+  background-color: transparent;
+  border: none;
+  color: #171717;
+  font-size: 18px;
+  font-weight: 500;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 10px;
+}
+.btnMenuHeader:hover:active{
+  color: #009F33;
+  border: 2px solid #009F33;
+}

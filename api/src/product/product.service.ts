@@ -74,7 +74,7 @@ export class ProductService {
 
     async searchById(id: string): Promise<any> {
       try{
-        const productModel = await this.productModel.findById(productId).exec();
+        const productModel = await this.productModel.findById(id).exec();
         if(!productModel){
           throw new HttpException("Product wasn't found...", HttpStatus.NOT_FOUND);
         }

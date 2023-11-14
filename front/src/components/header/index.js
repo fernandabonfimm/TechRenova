@@ -4,7 +4,6 @@ import Logo from "../../assets/img/logotr.png";
 import "./styles.css";
 import { useNavigate } from "react-router-dom";
 import { FaUser } from "react-icons/fa";
-import { BsFillCartFill } from "react-icons/bs";
 
 export default function Header() {
   const { Header } = Layout;
@@ -20,27 +19,24 @@ export default function Header() {
   ];
   return (
     <>
-      <div className="divHeaderFather">
-        <Header className="divHeader">
-          {menu.map((item) => {
-            return (
-              <div key={item.value}>
-                <Button
-                  className="btnMenuHeader"
-                  onClick={() => navigate(item.route)}
-                >
-                  {item.label}
-                </Button>
-              </div>
-            );
-          })}
-          <img src={Logo} alt="Logo" className="logoPreverHeader" />
-        </Header>
-        <div>
+      <Header className="divHeader">
+        <img src={Logo} alt="Logo" className="logoPreverHeader" />
+        {menu.map((item) => {
+          return (
+            <div key={item.value}>
+              <Button
+                className="btnMenuHeader"
+                onClick={() => navigate(item.route)}
+              >
+                {item.label}
+              </Button>
+            </div>
+          );
+        })}
+        <div className="icon-header" onClick={() => navigate("/login")}>
           <FaUser />
-          <BsFillCartFill />
         </div>
-      </div>
+      </Header>
     </>
   );
 }
