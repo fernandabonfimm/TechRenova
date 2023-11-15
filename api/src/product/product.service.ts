@@ -31,9 +31,13 @@ export class ProductService {
       const findAllProducts = await this.productModel
         .find({})
         .sort({ timestamp: -1 }); // -1 for descending order
-      if(!findAllProducts) throw new HttpException('Erro ao buscar os produtos', HttpStatus.I_AM_A_TEAPOT);
+      if (!findAllProducts)
+        throw new HttpException(
+          'Erro ao buscar os produtos',
+          HttpStatus.I_AM_A_TEAPOT,
+        );
       let categories = [];
-      
+
       findAllProducts.forEach((product, i = 0) => {
         if (i === 2) return;
         if (!categories.includes(product.category)) {
@@ -41,7 +45,7 @@ export class ProductService {
           i++;
         }
       });
-      
+
       const filteredAllProducts = await this.productModel.find({
         category: categories[0],
       });
@@ -68,42 +72,40 @@ export class ProductService {
       ];
       return productsArray;
 
-      const top10AllProductsArray(){
-        const top10ProductsArrayReturn[] = productsArray;
-        let counter:number = 0;
-        for(let i = 0; i < 3; i++){
-          top10ProductsArrayReturn[i] = filteredAllProducts[counter];
-          counter++;
-        } counter = 0; // reseting, right?
-        for(let i = 3; i < 7; i++){
-          top10ProductsArrayReturn[i] = filteredAllProducts2[counter];
-          counter++;
-        } counter = 0;
-        for(let i = 7; i < 11; i++){
-          top10ProductsArrayReturn[i] = filteredAllProducts3[counter];
-          counter++;
-        }
-        return top10ProductsArrayReturn;
-        }
-    
-
+      // const top10AllProductsArray(){
+      //   const top10ProductsArrayReturn[] = productsArray;
+      //   let counter:number = 0;
+      //   for(let i = 0; i < 3; i++){
+      //     top10ProductsArrayReturn[i] = filteredAllProducts[counter];
+      //     counter++;
+      //   } counter = 0;
+      //   for(let i = 3; i < 7; i++){
+      //     top10ProductsArrayReturn[i] = filteredAllProducts2[counter];
+      //     counter++;
+      //   } counter = 0;
+      //   for(let i = 7; i < 11; i++){
+      //     top10ProductsArrayReturn[i] = filteredAllProducts3[counter];
+      //     counter++;
+      //   }
+      //   return top10ProductsArrayReturn;
+      //   }
     } catch (E) {
       return E;
     }
-  } 
+  }
 
-  
-
-    async searchById(id: string): Promise<any> {
-      try{
-        const productModel = await this.productModel.findById(id).exec();
-        if(!productModel){
-          throw new HttpException("Product wasn't found...", HttpStatus.NOT_FOUND);
-        }
-        return productModel;
+  async searchById(id: string): Promise<any> {
+    try {
+      const productModel = await this.productModel.findById(id).exec();
+      if (!productModel) {
+        throw new HttpException(
+          "Product wasn't found...",
+          HttpStatus.NOT_FOUND,
+        );
       }
-      catch (error){
-      return "Error: " + error;
+      return productModel;
+    } catch (error) {
+      return 'Error: ' + error;
     }
   }
 }
