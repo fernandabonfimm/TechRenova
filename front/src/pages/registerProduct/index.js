@@ -6,8 +6,10 @@ import RegisterProductBanner from "../../assets/img/registerProductBanner.png";
 import "../registerProduct/styles.css";
 import Button from "components/button";
 import { ProductEndpoint } from "services/endpoints/product.endpoint";
-
+import Swal from "sweetalert2";
+import { useNavigate } from "react-router-dom";
 export default function RegisterProduct() {
+    const navigate = useNavigate();
     const [productName, setProductName] = React.useState("");
     const [productDescription, setProductDescription] = React.useState(""); 
     const [productCategory, setProductCategory] = React.useState("");

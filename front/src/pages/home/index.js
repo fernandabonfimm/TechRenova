@@ -6,28 +6,15 @@ import CardHome from "components/cardHome";
 import BannerHome from "../../assets/img/bannerh.png";
 import Banner2 from "../../assets/img/banner2.png";
 import ButtonComponent from "components/button";
+import { ProductEndpoint } from "services/endpoints/product.endpoint";
 
 export default function Home() {
-  const arrCardHome = [
-    {
-      title: "celular usado",
-      description: "Celular usado",
-      price: 300,
-      id: 1,
-    },
-    {
-      title: "celular usado",
-      description: "Celular usado",
-      price: 300,
-      id: 2,
-    },
-    {
-      title: "celular usado",
-      description: "Celular usado",
-      price: 300,
-      id: 3,
-    },
-  ];
+  const [arrCardHome, setCardHome] = React.useState([]);
+  React.useEffect(() => {
+    const products = ProductEndpoint.GetRegisterProduct();
+    console.log("productos", products)
+    setCardHome(products);
+  }, []);
   return (
     <Base>
       <img src={BannerHome} alt="bannerhome" className="imgBannerPrincipal" />
