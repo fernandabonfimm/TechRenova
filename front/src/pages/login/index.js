@@ -4,6 +4,7 @@ import Button from "components/button";
 import "./styles.css";
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
+import { UserEndpoint } from "services/endpoints/user.endpoint";
 
 export default function Login() {
   const [emailValue, setEmailValue] = React.useState("");
@@ -14,10 +15,26 @@ export default function Login() {
       email: emailValue,
       password: passwordValue,
     };
-    console.log(body);
-    Swal.fire({
-        title: "Sucesso"
-    })
+   Swal.fire({
+      title: "Aguarde...",
+      allowOutsideClick: false,
+      onBeforeOpen: () => {
+        Swal.showLoading();
+      },
+    });
+    UserEndpoint.Login(body)
+      .then((response) => {
+        Swal.close();
+        localStorage.setItem("user", JSON.stringify(response));
+        navigate("/home");
+      })
+      .catch((error) => {
+        Swal.fire({
+          icon: "error",
+          title: "Oops...",
+          text: error.response.data.message,
+        });
+      });
   };
   return (
     <div className="divLoginFather">
@@ -30,11 +47,13 @@ export default function Login() {
           value={emailValue}
           onChange={(e) => setEmailValue(e.target.value)}
           label="E-mail"
+          placeholder="Digite o seu e-mail..."
         ></Input>
         <Input
           value={passwordValue}
           onChange={(e) => setPasswordValue(e.target.value)}
           label="Senha"
+          placeholder="************"
         ></Input>
         <Button onClick={handleLogin}>Fazer Login</Button>
         <span className="spanLogin">

@@ -13,7 +13,7 @@ import { ProductModule } from './product/product.module';
       envFilePath: '.env',
       isGlobal: true,
     }),
-    MongooseModule.forRoot(process.env.DB_URI_LOCAL),
+    MongooseModule.forRoot(process.env.DB_URI),
     LoginModule,
     ProductModule,
   ],
