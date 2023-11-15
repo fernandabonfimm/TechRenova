@@ -1,13 +1,23 @@
-import { api } from "services/api";
+import api  from "services/api";
 
-async function Login(body){
-    const response = await api.post('login/', body);
-    return response.data;
+async function Login(body) {
+    try {
+        const response = await api.post('login/', body);
+        console.log(response)
+        return response;
+    } catch (error) {
+        console.log(error);
+    }
 };
 
-async function Register(body){
-    const response = await api.post('login/save', body);
-    return response.data;
+async function Register(body) {
+    try {
+        const response = await api.post('login/save', body);
+        console.log(response)
+    return response;
+    } catch (error) {
+    console.log(error);
+    }
 }
 
 export const UserEndpoint = {

@@ -1,24 +1,28 @@
-.divInput{
-    display: flex;
-    justify-content: flex-start;
-    align-items: start;
-    flex-direction: column;
-    gap: 10px;
-    width: 100%;
+.divInput {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
 }
 
-.labelClass{
-    font-size: 18px;
-    color: #fff;
-    text-transform: uppercase;
-    font-weight: 700;
+.labelClass {
+  font-size: 18px;
+  color: #fff;
+  text-transform: uppercase;
+  font-weight: 700;
 }
 
-.inputClass{
-    background-color: #4A6A8D;
-    border: none;
-    padding: 10px;
-    color: #fff;
-    border-radius: 10px;
-    width: 100%;
+.inputClassSelect {
+  width: 100%;
+}
+
+/* Estilos específicos para o Select do Ant Design */
+.inputClassSelect .ant-select-selector {
+  border: none;
+  border-radius: 10px;
+}
+
+
+.inputClass .ant-select-arrow {
+  color: #fff;
 }

@@ -26,7 +26,7 @@ export default function Login() {
       .then((response) => {
         Swal.close();
         localStorage.setItem("user", JSON.stringify(response));
-        navigate("/home");
+        navigate("/");
       })
       .catch((error) => {
         Swal.fire({

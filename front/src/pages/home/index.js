@@ -1,11 +1,8 @@
 import React from "react";
 import Base from "../../components/base";
 import "./styles.css";
-import { Button, Divider, Row, Col } from "antd";
+import { Button, Divider } from "antd";
 import CardHome from "components/cardHome";
-import Celular from "../../assets/img/celular.jpg";
-import Cpu from "../../assets/img/cpu.jpg";
-import Notebook from "../../assets/img/notebook.jpg";
 import BannerHome from "../../assets/img/bannerh.png";
 import Banner2 from "../../assets/img/banner2.png";
 
