@@ -5,7 +5,7 @@ import Input from "components/input";
 import RegisterProductBanner from "../../assets/img/registerProductBanner.png";
 import "../registerProduct/styles.css";
 import Button from "components/button";
-import axios from "axios";
+import { ProductEndpoint } from "services/endpoints/product.endpoint";
 
 export default function RegisterProduct() {
     const [productName, setProductName] = React.useState("");
@@ -15,7 +15,7 @@ export default function RegisterProduct() {
     const [productBrand, setProductBrand] = React.useState("");
     const [manufacturingDate, setManufacturingDate] = React.useState("");
     const [productPrice, setProductPrice] = React.useState("");
-    const [productImage, setProductImage] = React.useState("");
+    const [productImage, setProductImage] = React.useState("fcgfdgxdfgzdg");
 
     async function handleRegisterProduct() {
         const body = {
@@ -28,7 +28,24 @@ export default function RegisterProduct() {
             price: productPrice,
             image: productImage,
         };
-
+        ProductEndpoint.RegisterProduct(body)
+        .then((response) => {
+            Swal.fire({
+                icon: "sucess",
+                title: "Produto criado",
+                text: "Producto criado com sucesso",
+            }).then(() => {
+                console.log(response)
+                navigate("/");
+              })
+        })
+        .catch((error) => {
+          Swal.fire({
+            icon: "error",
+            title: "Oops...",
+            text: error.response.data.message,
+          });
+        });
     }
 
 

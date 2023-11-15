@@ -24,9 +24,14 @@ export default function Login() {
     });
     UserEndpoint.Login(body)
       .then((response) => {
-        Swal.close();
-        localStorage.setItem("user", JSON.stringify(response));
-        navigate("/");
+        Swal.fire({
+                icon: "sucess",
+                title: "Login realizado",
+                text: "Login realizado com sucesso",
+            }).then(() => {
+              localStorage.setItem("user", JSON.stringify(response));
+              navigate("/");
+              })
       })
       .catch((error) => {
         Swal.fire({

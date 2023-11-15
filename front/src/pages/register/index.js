@@ -44,10 +44,14 @@ export default function Register() {
     } else {
       UserEndpoint.Login(body)
       .then((response) => {
-        Swal.close();
-        console.log(response);
+        Swal.fire({
+          icon: "sucess",
+          title: "Registro criado!",
+          text: "Registro criado com sucesso",
+      }).then(() => {
         localStorage.setItem("user", JSON.stringify(response));
         navigate("/");
+        })
       })
       .catch((error) => {
         Swal.fire({
