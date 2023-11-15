@@ -15,22 +15,19 @@ export default function Home() {
       title: "celular usado",
       description: "Celular usado",
       price: 300,
-      img: <img src={Celular} alt="celular" />,
       id: 1,
     },
     {
       title: "celular usado",
       description: "Celular usado",
       price: 300,
-      img: <img src={Cpu} alt="celular" />,
-      id: 1,
+      id: 2,
     },
     {
       title: "celular usado",
       description: "Celular usado",
       price: 300,
-      img: <img src={Notebook} alt="celular" />,
-      id: 1,
+      id: 3,
     },
   ];
   return (
