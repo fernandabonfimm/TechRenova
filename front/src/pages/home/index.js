@@ -42,6 +42,7 @@ export default function Home() {
         </div>
       <div className="divCardsHome">
         {arrCardHome.map((item) => {
+          return (
           <div key={item.id}>
             <CardHome
               title={item.title}
@@ -49,7 +50,8 @@ export default function Home() {
               img={item.img}
               price={item.price}
             />
-          </div>;
+          </div>
+          )
         })}
       </div>
       <Button>VER TODOS OS PRODUTOS</Button>
