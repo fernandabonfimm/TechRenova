@@ -68,12 +68,22 @@ export class ProductService {
       ];
       return productsArray;
 
-      const top3AllProductsArray(){
-        const top3ProductsArrayReturn[] = productsArray;
-        //top3ProductsArrayReturn.forEach(categories, i=0){
-          top3AllProductsArray[0] = filteredAllProducts[0]
-          top3AllProductsArray[1] = filteredAllProducts2[0]
-          top3AllProductsArray[2] = filteredAllProducts3[0]
+      const top10AllProductsArray(){
+        const top10ProductsArrayReturn[] = productsArray;
+        let counter:number = 0;
+        for(let i = 0; i < 3; i++){
+          top10ProductsArrayReturn[i] = filteredAllProducts[counter];
+          counter++;
+        } counter = 0; // reseting, right?
+        for(let i = 3; i < 7; i++){
+          top10ProductsArrayReturn[i] = filteredAllProducts2[counter];
+          counter++;
+        } counter = 0;
+        for(let i = 7; i < 11; i++){
+          top10ProductsArrayReturn[i] = filteredAllProducts3[counter];
+          counter++;
+        }
+        return top10ProductsArrayReturn;
         }
     
 
