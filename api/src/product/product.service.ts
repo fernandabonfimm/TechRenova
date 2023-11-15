@@ -67,10 +67,22 @@ export class ProductService {
         },
       ];
       return productsArray;
+
+      const top3AllProductsArray(){
+        const top3ProductsArrayReturn[] = productsArray;
+        //top3ProductsArrayReturn.forEach(categories, i=0){
+          top3AllProductsArray[0] = filteredAllProducts[0]
+          top3AllProductsArray[1] = filteredAllProducts2[0]
+          top3AllProductsArray[2] = filteredAllProducts3[0]
+        }
+    
+
     } catch (E) {
       return E;
     }
-  }
+  } 
+
+  
 
     async searchById(id: string): Promise<any> {
       try{
