@@ -1,11 +1,10 @@
 
 import React from "react";
 import Base from "../../components/base";
-import BannerHome from "../../assets/img/bannerh.png";
-import { useNavigate } from "react-router-dom";
 import Input from "components/input";
-import Button from "components/button";
 import RegisterProductBanner from "../../assets/img/registerProductBanner.png";
+import "../registerProduct/styles.css";
+import Button from "components/button";
 
 export default function RegisterProduct() {
     const [productName, setProductName] = React.useState("");
@@ -39,27 +38,58 @@ export default function RegisterProduct() {
                     <Input
                         value={productName}
                         onChange={(e) => setProductName(e.target.value)}
-                        label="Nome do produto"
+                        label="Nome do produto:"
+                        classStyle="inputLabelClassRegisterProduct"
+                    >
+                    </Input>
+                    <Input
+                        value={productCategory}
+                        onChange={(e) => setProductCategory(e.target.value)}
+                        label="Categoria do produto:"
+                        classStyle="inputLabelClassRegisterProduct"
                     >
                     </Input>
                     <Input
                         value={productDescription}
                         onChange={(e) => setProductDescription(e.target.value)}
-                        label="Descrição do produto"
+                        label="Descrição do produto:"
+                        classStyle="inputLabelClassRegisterProduct"
                     ></Input>
-                </div>
-                <div>
-                    <Input
-                        value={productCategory}
-                        onChange={(e) => setProductCategory(e.target.value)}
-                        label="Categoria do produto"
-                        ></Input>
                     <Input
                         value={productTimeOfUse}
                         onChange={(e) => setProductTimeOfUse(e.target.value)}
-                        label="Tempo de uso"
-                        ></Input>
+                        label="Tempo de uso:"
+                        classStyle="inputLabelClassRegisterProduct"
+                    ></Input>
+                    <Input
+                        value={productBrand}
+                        onChange={(e) => setProductBrand(e.target.value)}
+                        label="Marca do produto:"
+                        classStyle="inputLabelClassRegisterProduct"
+                    ></Input>
+
+                </div>
+                <div  className="divProductsRegisterRowWithImage">
+                    <Input
+                        value={productImage}
+                        onChange={(e) => setProductImage(e.target.value)}
+                        label="Imagem do produto:"
+                        classStyle="inputLabelClassRegisterProduct"
+                    ></Input>
+                    <Input
+                        value={manufacturingDate}
+                        onChange={(e) => setManufacturingDate(e.target.value)}
+                        label="Data de fabricação:"
+                        classStyle="inputLabelClassRegisterProduct"
+                    ></Input>
+                    <Input
+                        value={productPrice}
+                        onChange={(e) => setProductPrice(e.target.value)}
+                        label="Preço do produto:"
+                        classStyle="inputLabelClassRegisterProduct"
+                    ></Input>
                 </div>
             </div>
+            <Button onClick={handleRegisterProduct} btnClassStyle="buttonRegisterProduct">Cadastrar Produto</Button>
         </Base>
     )}
