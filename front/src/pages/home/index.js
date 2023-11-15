@@ -15,22 +15,19 @@ export default function Home() {
       title: "celular usado",
       description: "Celular usado",
       price: 300,
-      img: <img src={Celular} alt="celular" />,
       id: 1,
     },
     {
       title: "celular usado",
       description: "Celular usado",
       price: 300,
-      img: <img src={Cpu} alt="celular" />,
-      id: 1,
+      id: 2,
     },
     {
       title: "celular usado",
       description: "Celular usado",
       price: 300,
-      img: <img src={Notebook} alt="celular" />,
-      id: 1,
+      id: 3,
     },
   ];
   return (
@@ -39,8 +36,10 @@ export default function Home() {
       <div className="divImgBanner2">
         <img src={Banner2} alt="banner2" className="imgBanner2" />
       </div>
+      <div className="divproducts">
       <h1>PRODUTOS</h1>
-      <Divider />
+        <Divider />
+        </div>
       <div className="divCardsHome">
         {arrCardHome.map((item) => {
           <div key={item.id}>
@@ -54,16 +53,6 @@ export default function Home() {
         })}
       </div>
       <Button>VER TODOS OS PRODUTOS</Button>
-      <div className="bannerHome imgBannerPrincipal">
-        <h1 className="titleCol2Footer">SOBRE NOSSO MODELO DE NEGÓCIOS</h1>
-        <span className="subtitleCol2Footer">
-          The perfect balance of whimsical and wearable – the feminine Edie
-          Cascade
-        </span>
-        <Button className="btnCol2Footer" onClick={() => {}}>
-          SAIBA MAIS
-        </Button>
-      </div>
     </Base>
   );
 }

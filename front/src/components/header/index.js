@@ -11,11 +11,10 @@ export default function Header() {
   const menu = [
     { label: "Home", value: "home", route: "/" },
     {
-      label: "Produtos refatorados",
+      label: "Enviar produtos",
       value: "Produtos",
       route: "/refactProduct",
     },
-    { label: "Enviar produtos", value: "Enviar", route: "/sendProduct" },
   ];
   return (
     <>

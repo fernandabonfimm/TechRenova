@@ -2,6 +2,7 @@ import React from "react";
 import "./styles.css";
 import TabPane from "components/tabPane";
 import { Card } from "antd";
+import Base from "components/base";
 
 export default function Dashboard() {
   const items = [
@@ -21,8 +22,10 @@ export default function Dashboard() {
     console.log(key);
   };
   return (
+    <Base>
     <Card className="cardContainer">
       <TabPane items={items} onChange={onChange} />
-    </Card>
+      </Card>
+      </Base>
   );
 }
