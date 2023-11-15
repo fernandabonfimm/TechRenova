@@ -13,7 +13,7 @@ export default function Header() {
     {
       label: "Enviar produtos",
       value: "Produtos",
-      route: "/refactProduct",
+      route: "/registerProduct",
     },
   ];
   return (

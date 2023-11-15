@@ -5,6 +5,7 @@ import { Button, Divider } from "antd";
 import CardHome from "components/cardHome";
 import BannerHome from "../../assets/img/bannerh.png";
 import Banner2 from "../../assets/img/banner2.png";
+import ButtonComponent from "components/button";
 
 export default function Home() {
   const arrCardHome = [
@@ -36,10 +37,8 @@ export default function Home() {
       <div className="divproducts">
       <h1>PRODUTOS</h1>
         <Divider />
-        </div>
-      <div className="divCardsHome">
         {arrCardHome.map((item) => {
-          <div key={item.id}>
+          <div key={item.id}> 
             <CardHome
               title={item.title}
               description={item.description}
@@ -49,7 +48,9 @@ export default function Home() {
           </div>;
         })}
       </div>
-      <Button>VER TODOS OS PRODUTOS</Button>
+      <div className="divproducts smalbtn">
+        <ButtonComponent>VER TODOS OS PRODUTOS</ButtonComponent>
+        </div>
     </Base>
   );
 }

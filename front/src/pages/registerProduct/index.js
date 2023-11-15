@@ -28,23 +28,13 @@ export default function RegisterProduct() {
             price: productPrice,
             image: productImage,
         };
-        try {
-            const response = await axios.post("http://localhost:3010/product", body);
-            console.log(response);
-        } catch (error) {
-            console.log(error);
-        }
-        // await axios.get("http://localhost:3010/").then((response) => {
-        //     console.log(response);
-        // }).catch((error) => {  
-        //     console.log(error);
-        // });
+
     }
 
 
     return (
         <Base>
-            <img src={RegisterProductBanner} alt="registerProduct" className="imgBannerPrincipal" />
+            <img src={RegisterProductBanner} alt="registerProduct" className="registerProduct" />
             <div className="divProductsRegisterCollumn">
                 <div className="divProductsRegisterRow">
                     <Input
@@ -72,16 +62,6 @@ export default function RegisterProduct() {
                         labelClassStyle="inputLabelClassRegisterProduct"
                         inputClassStyle="inputClass"
                         placeholder="Digite a descrição do produto..."
-                    ></Input>
-                </div>
-                <div  className="divProductsRegisterRowWithImage">
-                    <Input
-                        value={productImage}
-                        onChange={(e) => setProductImage(e.target.value)}
-                        label="Imagem do produto:"
-                        labelClassStyle="inputLabelClassRegisterProduct"
-                        inputClassStyle="inputClass"
-                        placeholder="Envie as imagens do produto ..."
                     ></Input>
                 </div>
                 
@@ -124,6 +104,8 @@ export default function RegisterProduct() {
                     ></Input>
                 </div>
             </div>
-            <Button onClick={handleRegisterProduct} btnClassStyle="buttonRegisterProduct">Cadastrar Produto</Button>
+            <div className="btndiv-prod">
+                <Button onClick={handleRegisterProduct}>Cadastrar Produto</Button>
+            </div>
         </Base>
     )}

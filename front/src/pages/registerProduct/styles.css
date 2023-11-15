@@ -1,11 +1,10 @@
-.imgBannerPrincipal {
-    background-size: cover;
-    background-repeat: no-repeat;
+.registerProduct {
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
-    align-items: flex-start;
+    justify-content: center;
+    align-items:center;
     width: 100%;
+    height: 454px;
   }
 
 .divProductsRegisterRow {
@@ -30,11 +29,18 @@
 
 .divProductsRegisterCollumn {
   display: flex;
-  padding: 30px 20px 0;
+  padding: 30px;
   gap: 50px;
   width: 100%;
 }
 
+.btndiv-prod{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+  padding: 30px;
+}
 .inputLabelClassRegisterProduct {
     font-size: 18px;
     color: #081F38;
