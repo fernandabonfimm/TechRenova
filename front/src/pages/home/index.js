@@ -45,7 +45,7 @@ export default function Home() {
               img={item.img}
               price={item.price}
             />
-          </div>;
+          </div>
         })}
       </div>
       <div className="divproducts smalbtn">
