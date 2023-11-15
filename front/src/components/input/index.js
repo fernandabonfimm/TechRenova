@@ -7,13 +7,14 @@ export default function InputComponent({
   value,
   onChange,
   placeholder,
-  classStyle = "labelClass",
+  labelClassStyle = "labelClass",
+  inputClassStyle = "inputClass",
 }) {
   return (
     <div className="divInput">
-      <label className={classStyle}>{label}</label>
+      <label className={labelClassStyle}>{label}</label>
       <Input
-        className="inputClass"
+        className={inputClassStyle}
         value={value}
         placeholder={placeholder}
         onChange={onChange}
