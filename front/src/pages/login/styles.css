@@ -4,7 +4,7 @@
   align-items: center;
   flex-direction: row;
   width: 100%;
-  min-height: 100vh;
+  max-height: 150vh;
 }
 .divLogin2 {
   display: flex;
@@ -14,19 +14,21 @@
   background-color: #081f38;
   padding: 2em;
   width: 50%;
-  min-height: 100vh;
+  min-height: 150vh;
   gap: 20px;
 }
-
 .divLogin1 {
   display: flex;
   justify-content: flex-start;
   align-items: center;
   flex-direction: column;
   padding: 2em;
+  min-height: 150vh;
   width: 50%;
-  min-height: 100vmin;
   background-image: url('../../assets/img/photologin.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .titleLogin{

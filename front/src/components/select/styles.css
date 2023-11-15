@@ -1,0 +1,24 @@
+.divInput{
+    display: flex;
+    justify-content: flex-start;
+    align-items: start;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+}
+
+.labelClass{
+    font-size: 18px;
+    color: #fff;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+.inputClass{
+    background-color: #4A6A8D;
+    border: none;
+    padding: 10px;
+    color: #fff;
+    border-radius: 10px;
+    width: 100%;
+}
