@@ -5,6 +5,7 @@ import Button from "components/button";
 import Swal from "sweetalert2";
 import { UserEndpoint } from "services/endpoints/user.endpoint";
 import SelectComponent from "components/select";
+import InputComponentPass from "components/inputpass";
 
 export default function Register() {
   const navigate = useNavigate();
@@ -18,10 +19,10 @@ export default function Register() {
     { label: "Vendedor", value: 2 },
     { label: "Cliente", value: 3 },
   ];
-  const [optionChoice, setOptionChoice] = React.useState({});
+  const [optionChoice, setOptionChoice] = React.useState(1);
 
-  const onChangeSelect = (e) => {
-    setOptionChoice(e);
+  const onChangeSelect = (value) => {
+    setOptionChoice(value);
   };
   function handleRegister() {
     const body = {
@@ -32,6 +33,7 @@ export default function Register() {
       confirmPassword: confirmPassword,
       category: optionChoice,
     };
+  
     if (body.password !== body.confirmPassword) {
       Swal.fire({
         icon: "error",
@@ -41,21 +43,29 @@ export default function Register() {
       return;
     } else {
       UserEndpoint.Login(body)
-        .then((response) => {
-          Swal.close();
-          localStorage.setItem("user", JSON.stringify(response));
-          navigate("/login");
-        })
-        .catch((error) => {
+      .then((response) => {
+        Swal.close();
+        console.log(response);
+        localStorage.setItem("user", JSON.stringify(response));
+        navigate("/");
+      })
+      .catch((error) => {
+        Swal.fire({
+          icon: "error",
+          title: "Oops...",
+          text: error.response.data.message,
+        });
+    
+        if (!error.response || error.response.status !== 302) {
           Swal.fire({
             icon: "error",
             title: "Oops...",
-            text: error.response.data.message,
+            text: error.response,
           });
-        });
+        }
+      });
     }
   }
-
   return (
     <div className="divLoginFather">
       <div className="divLogin2">
@@ -81,23 +91,23 @@ export default function Register() {
           label="E-mail"
           placeholder="Digite seu e-mail..."
         ></Input>
-        <SelectComponent
-          label="Tipo de usuário"
-          options={options}
-          onChange={(e) => onChangeSelect(e.target.value)}
-        />
-        <Input
+<SelectComponent
+  label="Tipo de usuário"
+  options={options}
+  onChange={(value) => onChangeSelect(value)}
+/>
+        <InputComponentPass
           value={hash}
           onChange={(e) => setHash(e.target.value)}
           label="Senha"
           placeholder="***********"
-        ></Input>
-        <Input
+        ></InputComponentPass>
+        <InputComponentPass
           value={confirmPassword}
           onChange={(e) => setconfirmPassword(e.target.value)}
           label="Confirmar senha"
           placeholder="***********"
-        ></Input>
+        ></InputComponentPass>
         <Button onClick={handleRegister}>Criar Cadastro</Button>
         <span className="spanLogin">
           Já possui conta? <a onClick={() => navigate("/login")}>Fazer login</a>

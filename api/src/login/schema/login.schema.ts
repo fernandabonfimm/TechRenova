@@ -19,7 +19,7 @@ export class User {
   email: string;
 
   @Prop()
-  hash: string;
+  password: string;
 
   @Prop()
   category: UserCateogry;

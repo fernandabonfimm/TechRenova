@@ -12,6 +12,7 @@ export default function CardHome({ title, description, price, img, id }) {
   function redirectCard() {
     navigate(`/product/${id}`);
   }
+  const user =localStorage.getItem('user')
   return (
     <div className="divp-cardhome">
       <img src={img} alt={title} className="img-cardhome"/>

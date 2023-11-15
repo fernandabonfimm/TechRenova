@@ -9,7 +9,7 @@ export default function SelectComponent({ label, options, onChange }) {
       <Select
         labelInValue
         onChange={onChange}
-        className="inputClass"
+        className="inputClassSelect"
         options={options}
       />
     </div>
