@@ -126,7 +126,7 @@ export default function RegisterProduct() {
             label="Data de fabricação:"
             labelClassStyle="inputLabelClassRegisterProduct"
             inputClassStyle="inputClass"
-            placeholder="Digite a data de fabricação do produto..."
+            placeholder="99/99/9999"
           ></Input>
           <Input
             value={productPrice}

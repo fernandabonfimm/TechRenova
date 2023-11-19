@@ -7,9 +7,6 @@ import "./styles.css";
 export default function CardHome({ title, description, price, img, id }) {
   const navigate = useNavigate();
 
-  function calcDivisionPrice() {
-    return price / 12;
-  }
   function redirectCard() {
     navigate(`/product/${id}`);
   }
@@ -22,6 +19,10 @@ export default function CardHome({ title, description, price, img, id }) {
     }
   }
 
+  function calcDivisionAndFormat(price) {
+    let division = price / 12 + 0.01;
+    return formatMoney(division);
+  }
   function formatMoney(price) {
     return price.toLocaleString("pt-br", {
       style: "currency",
@@ -35,8 +36,8 @@ export default function CardHome({ title, description, price, img, id }) {
         <h1>{Ellipsis(title, 30)}</h1>
         <span>{Ellipsis(description, 50)}</span>
         <div>
-          <h3>R$ {formatMoney(price)} á vista</h3>
-          <span>ou 12x R$ {calcDivisionPrice} </span>
+          <h3>{formatMoney(price)} á vista</h3>
+          <span>ou até 12x R$ {calcDivisionAndFormat(price)} </span>
         </div>
       </div>
       <div style={{marginTop: 10}}>
