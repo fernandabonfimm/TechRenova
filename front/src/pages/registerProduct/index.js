@@ -66,11 +66,11 @@ export default function RegisterProduct() {
       .then((response) => {
         console.log("response registerproduct:", response, "body:", body);
         Swal.fire({
-          icon: "sucess",
+          icon: "success", // Corrigido de "sucess" para "success"
           title: "Produto criado",
-          text: "Producto criado com sucesso",
+          text: "Produto criado com sucesso",
         }).then(() => {
-          console.log(response);
+          console.log("NAVresponse registerproduct:", response);
           navigate("/");
         });
       })
