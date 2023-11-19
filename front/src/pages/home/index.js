@@ -75,9 +75,6 @@ export default function Home() {
           </div>
         )}
       </div>
-      <div className="divproducts smalbtn">
-        <ButtonComponent>VER TODOS OS PRODUTOS</ButtonComponent>
-      </div>
     </Base>
   );
 }
