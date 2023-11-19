@@ -13,6 +13,17 @@
   width: 100%;
 }
 
+.cardContainerFlex{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.cardItem {
+  width: 23%; /* ou qualquer outro valor desejado para ocupar 4 cards por linha */
+  margin-bottom: 20px;
+}
+
 .imgBannerPrincipal {
   background-image: url("../../assets/img/bannerFooter.png");
   background-size: cover;

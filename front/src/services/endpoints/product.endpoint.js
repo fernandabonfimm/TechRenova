@@ -2,7 +2,7 @@ import api  from "services/api";
 
 async function RegisterProduct(body) {
     try {
-        const response = await api.post('product/', body);
+        const response = await api.post('product', body);
         console.log(response)
         return response;
     } catch (error) {
@@ -10,16 +10,14 @@ async function RegisterProduct(body) {
     }
 };
 
-async function
-    GetRegisterProduct(body) {
+async function GetRegisterProduct() {
     try {
-        const response = await api.get('product/');
-        console.log(response)
-        return response;
+      const response = await api.get('product');
+      return response.data; 
     } catch (error) {
-        console.log(error);
+      throw error; 
     }
-};
+  }
 
 export const ProductEndpoint = {
     GetRegisterProduct,
