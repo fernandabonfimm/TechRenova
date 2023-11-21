@@ -32,7 +32,7 @@ export class LoginService {
 
       const user = await this.userModel.findOne({
         email: loginDto.email,
-        hash: loginDto.password,
+        password: loginDto.password,
       });
       if (!user)
         throw new HttpException('Usúario não encontrado', HttpStatus.NOT_FOUND);
@@ -42,6 +42,7 @@ export class LoginService {
         name: user.name,
         surname: user.surname,
         email: user.email,
+        category: user.category,
       };
     } catch (e: any | HttpException) {
       console.error('Erro no login:', e);

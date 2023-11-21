@@ -15,23 +15,25 @@ export default function Login() {
       email: emailValue,
       password: passwordValue,
     };
-   Swal.fire({
+  
+    Swal.fire({
       title: "Aguarde...",
       allowOutsideClick: false,
       onBeforeOpen: () => {
         Swal.showLoading();
       },
     });
+  
     UserEndpoint.Login(body)
       .then((response) => {
         Swal.fire({
-                icon: "sucess",
-                title: "Login realizado",
-                text: "Login realizado com sucesso",
-            }).then(() => {
-              localStorage.setItem("user", JSON.stringify(response));
-              navigate("/");
-              })
+          icon: "success", // Corrigido de "sucess" para "success"
+          title: "Login realizado",
+          text: "Login realizado com sucesso",
+        }).then(() => {
+          localStorage.setItem("user", JSON.stringify(response));
+          navigate("/");
+        });
       })
       .catch((error) => {
         Swal.fire({
@@ -41,6 +43,7 @@ export default function Login() {
         });
       });
   };
+  
   return (
     <div className="divLoginFather">
       <div className="divLogin2">

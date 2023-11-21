@@ -22,19 +22,18 @@ export default function Register() {
   const [optionChoice, setOptionChoice] = React.useState(1);
 
   const onChangeSelect = (value) => {
-    setOptionChoice(value);
+    setOptionChoice(value.value);
   };
+
   function handleRegister() {
     const body = {
       name: name,
       surname: surname,
       email: email,
       password: hash,
-      confirmPassword: confirmPassword,
       category: optionChoice,
     };
-  
-    if (body.password !== body.confirmPassword) {
+    if (body.password !== confirmPassword) {
       Swal.fire({
         icon: "error",
         title: "Oops...",
@@ -42,32 +41,32 @@ export default function Register() {
       });
       return;
     } else {
-      UserEndpoint.Login(body)
-      .then((response) => {
-        Swal.fire({
-          icon: "sucess",
-          title: "Registro criado!",
-          text: "Registro criado com sucesso",
-      }).then(() => {
-        localStorage.setItem("user", JSON.stringify(response));
-        navigate("/");
+      UserEndpoint.Register(body)
+        .then((response) => {
+          Swal.fire({
+            icon: "success",
+            title: "Registro criado!",
+            text: "Registro criado com sucesso",
+          }).then(() => {
+            localStorage.setItem("user", JSON.stringify(response));
+            navigate("/");
+          });
         })
-      })
-      .catch((error) => {
-        Swal.fire({
-          icon: "error",
-          title: "Oops...",
-          text: error.response.data.message,
-        });
-    
-        if (!error.response || error.response.status !== 302) {
+        .catch((error) => {
           Swal.fire({
             icon: "error",
             title: "Oops...",
-            text: error.response,
+            text: error.response.data.message,
           });
-        }
-      });
+
+          if (!error.response || error.response.status !== 302) {
+            Swal.fire({
+              icon: "error",
+              title: "Oops...",
+              text: error.response,
+            });
+          }
+        });
     }
   }
   return (
@@ -95,11 +94,11 @@ export default function Register() {
           label="E-mail"
           placeholder="Digite seu e-mail..."
         ></Input>
-<SelectComponent
-  label="Tipo de usuário"
-  options={options}
-  onChange={(value) => onChangeSelect(value)}
-/>
+        <SelectComponent
+          label="Tipo de usuário"
+          options={options}
+          onChange={(value) => onChangeSelect(value)}
+        />
         <InputComponentPass
           value={hash}
           onChange={(e) => setHash(e.target.value)}

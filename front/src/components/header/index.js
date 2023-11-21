@@ -16,6 +16,15 @@ export default function Header() {
       route: "/registerProduct",
     },
   ];
+
+  const categoryUser = JSON.parse(localStorage.getItem("user"));
+  if (categoryUser.data && categoryUser.data.category === 1) {
+    menu.push({
+      label: "Dashboard",
+      value: "Dashboard",
+      route: "/dash",
+    });
+  }
   return (
     <>
       <Header className="divHeader">

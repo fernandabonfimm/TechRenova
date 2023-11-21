@@ -3,8 +3,7 @@ import { InjectModel } from '@nestjs/mongoose';
 import { Product } from './schemas/product.schema';
 import { Model } from 'mongoose';
 import { ProductDto } from './dtos/product.dto';
-import { async } from 'rxjs';
-import { error } from 'console';
+
 
 @Injectable()
 export class ProductService {
@@ -12,7 +11,22 @@ export class ProductService {
     @InjectModel(Product.name) private productModel: Model<Product>,
   ) {}
 
-  async addNewProduct(product: ProductDto): Promise<Product> {
+  async deleteProduct(id: string): Promise<Product> {
+    try {
+      const deletedProduct = await this.productModel.findByIdAndDelete(id);
+      if (!deletedProduct) {
+        throw new HttpException(
+          'Erro ao deletar o produto',
+          HttpStatus.INTERNAL_SERVER_ERROR,
+        );
+      }
+      return deletedProduct;
+    } catch (error) {
+      return error;
+    }
+  }
+
+  async addNewProduct(product: ProductDto): Promise<any> {
     try {
       const newProduct = await this.productModel.create(product);
       if (!newProduct)
@@ -65,4 +79,5 @@ export class ProductService {
       return 'Error: ' + error;
     }
   }
+
 }
