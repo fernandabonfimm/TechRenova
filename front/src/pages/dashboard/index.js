@@ -4,7 +4,6 @@ import TabPane from "components/tabPane";
 import { Card } from "antd";
 import Base from "components/base";
 import { ProductEndpoint } from "services/endpoints/product.endpoint";
-import DataTable from "components/table";
 import { UserEndpoint } from "services/endpoints/user.endpoint";
 import { Table } from "antd";
 
